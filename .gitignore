@@ -1,4 +1,5 @@
 .DS_Store
 node_modules/
-build/**/*.js
-build/**/*.css
+bower_components/
+build/
+.sass-cache/

@@ -1,0 +1,28 @@
+{
+  "name": "embergq",
+  "version": "0.0.1",
+  "homepage": "https://github.com/micahblu/embergq",
+  "authors": [
+    "Micah Blu <micahblu@gmail.com>"
+  ],
+  "description": "A very simple ember starter kit",
+  "keywords": [
+    "Ember",
+    "starter",
+    "kit",
+    "emberjs"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "ember": "~1.7.0",
+    "handlebars": "1.3.0",
+    "jquery": "~1.10.2"
+  }
+}

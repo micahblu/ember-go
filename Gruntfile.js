@@ -26,14 +26,13 @@ module.exports = function(grunt) {
     
     concat: {
       app: {
-        src: ['src/js/libs/jquery-1.10.2.js',
-              'src/js/libs/handlebars-1.1.2.js',
-              'src/js/libs/ember-1.3.1.js',
-              'src/js/libs/ember-data-1.0.0-beta.7.js',
-              'src/js/templates.js',
-              'src/js/app/*.js', 
-              'src/js/app/models/*.js', 
-              'src/js/app/**/*.js'],
+        src: ['bower_components/jquery/jquery.js',
+              'bower_components/handlebars/handlebars.js',
+              'bower_components/ember/ember.js',
+              'src/app/templates.js',
+              'src/app/init.js',
+              'src/app/router.js',
+              'src/app/**/*.js'],
 
         dest: 'build/assets/js/app.js'
       }
@@ -43,7 +42,7 @@ module.exports = function(grunt) {
         all: {
             options: {
                 urls: [
-                    'http://localhost:9000/test/index.html'
+                    'http://localhost/[YOUR_PATH_HERE]/test/index.html'
                 ]
             }
         }
@@ -80,6 +79,18 @@ module.exports = function(grunt) {
       jshint: {
         files: ['src/js/app/**/*.js'],
         tasks: ['jshint']
+      },
+
+      index: {
+        files: 'src/index.html',
+        tasks: ['copy:build']
+      }
+    },
+
+    copy: {
+      build: {
+        src: 'src/index.html',
+        dest: 'build/index.html'
       }
     }
   });
@@ -91,7 +102,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-qunit');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
   // Default task(s).
-  grunt.registerTask('default', ['sass', 'emberTemplates', 'concat', 'watch']);
+  grunt.registerTask('default', ['sass', 'emberTemplates', 'concat', 'copy', 'watch']);
 };
