@@ -16,10 +16,10 @@ module.exports = function(grunt) {
     emberTemplates: {
       compile: {
         options: {
-          templateBasePath: /src\/js\/app\/templates\//
+          templateBasePath: /src\/app\/templates\//
         },
         files: {
-          'src/js/templates.js': 'src/js/app/templates/**/*.hbs'
+          'src/app/templates.js': 'src/app/templates/**/*.hbs'
         }
       }
     },
@@ -42,7 +42,7 @@ module.exports = function(grunt) {
         all: {
             options: {
                 urls: [
-                    'http://localhost/[YOUR_PATH_HERE]/test/index.html'
+                    'http://localhost/[YOUR_PATH_HERE]/tests/index.html'
                 ]
             }
         }
@@ -63,21 +63,21 @@ module.exports = function(grunt) {
         tasks: ['sass']
       }, 
       emberTemplates: {
-        files: 'src/js/app/templates/**/*.hbs',
+        files: 'src/app/templates/**/*.hbs',
         tasks: ['emberTemplates']
       }, 
       concat: {
-        files: ['src/js/**/*.js', '!src/js/app.js', '!src/js/libs.js', '!src/js/templates.js'],
+        files: ['src/app/**/*.js', '!src/app.js', '!src/app/libs.js', '!src/app/templates.js'],
         tasks: ['concat']
       },
 
       qunit: {
-        files: ['src/js/app/**/*.js'],
-        tasks: ['connect', 'qunit']
+        files: ['src/app/**/*.js'],
+        tasks: ['qunit']
       },
 
       jshint: {
-        files: ['src/js/app/**/*.js'],
+        files: ['src/app/**/*.js'],
         tasks: ['jshint']
       },
 
